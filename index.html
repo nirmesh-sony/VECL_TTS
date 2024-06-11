@@ -1,0 +1,601 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<div class="text-bg-info p-3 mt-4 col-md-12" style="height: 200;">
+  <h1 style="text-align: center;">VECL-TTS:Voice Identity and Emotional Style Controllable Cross-Lingual Text-to-Speech Synthesis</h1>
+</div>
+
+<div class="mt-4 col-md-12" style="text-align: center;" >
+  <h2 style="text-align: center;" >Model Architecture</h2>
+</div>
+<div class="mt-4 col-md-12" style="text-align: center;" >
+  <figure>
+    <img 
+        style="display: block; 
+              margin-left: auto;
+              margin-right: auto;
+              width: 100%;"
+        src="./image.png"
+        alt="DubWise Architecture">
+    <figcaption>Figure 1. The bock diagram of proposed VECL-TTS model. Contributions are highlighted via red dotted box. </figcaption>
+</figure>
+</div>
+
+                        <br>
+                        <h2 style="text-decoration: underline;">Demo Samples with Text</h2>
+                        <br>
+                        
+  <table>
+    <thead>
+      <tr>
+        <th style="width:30%">Text</th>
+        <th colspan="2">Normal</th>
+        <th colspan="2">Anger</th>
+        <th colspan="2">Sad</th>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Ref Audio</th>
+        <th>VECL</th>
+        <th>Ref Audio</th>
+        <th>VECL</th>
+        <th>Ref Audio</th>
+        <th>VECL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>I cannot believe she has been   admonished</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl1.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>कुतुबमिनार   जगातील सर्वाधिक उंच मिनार आहे.</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl2.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>I cannot believe she has been  admonished</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl3.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>సూర్యప్రభ   వాహనంలో,అమ్మవారి దర్శనంతో  ఆరోగ్యం, ఐశ్వర్యం, సత్సంతానం, సుజ్ఞానం లభిస్తుందని,భక్తుల విశ్వాసం.</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl4.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>I cannot believe she has been   admonished</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl5.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>ర్యప్రభ   వాహనంలో,అమ్మవారి దర్శనంతో  ఆరోగ్యం, ఐశ్వర్యం, సత్సంతానం, సుజ్ఞానం లభిస్తుందని,భక్తుల విశ్వాసం.</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl6.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+      <tr>
+        <td>ర్యప్రభ   వాహనంలో,అమ్మవారి దర్శనంతో  ఆరోగ్యం, ఐశ్వర్యం, సత్సంతానం, సుజ్ఞానం లభిస్తుందని,భక్తుల విశ్వాసం.</td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_ref7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Normal_vecl7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_ref7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Angry_vecl7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_ref7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+        <td><audio controls="">
+            <source src="./DemoText/Sad_vecl7.wav" type="audio/wav">
+            Your browser does not support the audio element.
+        </audio></td>
+      </tr>
+    </tbody>
+  </table>
+
+                        <h2 style="text-decoration: underline;">Demo Samples</h2>
+                        <br>
+                        <table class="table">
+                            <tbody><tr>
+                                <th style="text-align:center;"> Reference</th>
+                                <th style="text-align:center;"> YourTTs</th>
+                                <th style="text-align:center;"> VECL-TTS</th>
+                                <th style="text-align:center;"> Ablation 1</th>
+                                <th style="text-align:center;"> Ablation 2</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/1_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                    
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/1_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/1_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/1_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/1_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/2_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/2_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/2_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/2_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/2_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/3_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/3_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/3_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/3_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/3_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/4_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/4_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/4_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/4_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/4_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/5_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/5_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/5_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/5_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/5_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/6_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/6_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/6_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/6_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/6_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/7_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/7_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/7_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/7_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/7_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/8_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/8_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/8_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/8_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/8_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/9_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/9_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/9_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/9_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/9_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/10_ref.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                            
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/10_yourtts.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/10_vecl.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/10_abl1.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                                <td>
+                                    <audio controls="">
+                                        <source src="./Demo/10_abl2.wav" type="audio/wav">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-secondary text-light
+                                          mt-4 pt-3 pb-2">
+        <div class="container">
+            <p class="text-center">
+
+            </p>
+        </div>
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./index_vecl_files/jquery-3.3.1.slim.min.js.download" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="./index_vecl_files/popper.min.js.download" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="./index_vecl_files/bootstrap.min.js.download" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+
+<iframe frameborder="0" scrolling="no" style="background-color: transparent; border: 0px; display: none;" src="./index_vecl_files/saved_resource.html"></iframe><div id="GOOGLE_INPUT_CHEXT_FLAG" input="" input_stat="{&quot;tlang&quot;:true,&quot;tsbc&quot;:true,&quot;pun&quot;:true,&quot;mk&quot;:true,&quot;ss&quot;:true}" style="display: none;"></div></body></html>
